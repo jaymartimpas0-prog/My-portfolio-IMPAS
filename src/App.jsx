@@ -1,25 +1,25 @@
-import { useEffect, useState } from 'react'
-import './App.css'
+import { useEffect, useState } from "react";
+import "./App.css";
 
 function App() {
-  const [repos, setRepos] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [repos, setRepos] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // Palitan mo ng GitHub username mo
-  const username = 'jaymartimpas0-prog'
+  const username = "jaymartimpas0-prog";
 
   useEffect(() => {
     fetch(`https://api.github.com/users/${username}/repos?sort=updated`)
       .then((res) => res.json())
       .then((data) => {
-        setRepos(data)
-        setLoading(false)
+        setRepos(data);
+        setLoading(false);
       })
       .catch((err) => {
-        console.log(err)
-        setLoading(false)
-      })
-  }, [])
+        console.log(err);
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <div className="container">
@@ -39,12 +39,20 @@ function App() {
       <section id="home" className="hero">
         <p>HELLO, I'M</p>
         <h1>Jaymart Impas</h1>
-        <h3>Student & Aspiring Web Developer</h3>
+        <h3>Student in University of Cabuyao</h3>
         <p>I build web applications and learn new technologies.</p>
-        
+
         <div className="hero-btns">
-          <a href="#projects" className="btn">View Projects</a>
-          <a href={`https://github.com/${username}`} target="_blank" className="btn-outline">GitHub Profile</a>
+          <a href="#projects" className="btn">
+            View Projects
+          </a>
+          <a
+            href={`https://github.com/${username}`}
+            target="_blank"
+            className="btn-outline"
+          >
+            GitHub Profile
+          </a>
         </div>
       </section>
 
@@ -52,7 +60,8 @@ function App() {
       <section id="about" className="section">
         <h2>About Me</h2>
         <p>
-          I am a student passionate about web development, programming, and creating useful apps.
+          I am a student passionate about web development, programming, and
+          creating useful apps.
         </p>
       </section>
 
@@ -78,7 +87,7 @@ function App() {
             {repos.map((repo) => (
               <div key={repo.id} className="project-card">
                 <h3>{repo.name}</h3>
-                <p>{repo.description || 'No description added.'}</p>
+                <p>{repo.description || "No description added."}</p>
                 <small>{repo.language}</small>
                 <br />
                 <a href={repo.html_url} target="_blank" rel="noreferrer">
@@ -94,12 +103,16 @@ function App() {
       <section id="contact" className="section">
         <h2>Contact</h2>
         <p>Check out my work on GitHub or reach out!</p>
-        <a href={`https://github.com/${username}`} target="_blank" className="btn">
+        <a
+          href={`https://github.com/${username}`}
+          target="_blank"
+          className="btn"
+        >
           Visit GitHub
         </a>
       </section>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
