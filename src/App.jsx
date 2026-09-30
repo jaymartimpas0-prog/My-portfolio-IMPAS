@@ -5,13 +5,19 @@ function App() {
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const username = "jaymartimpas0-prog";
 
   useEffect(() => {
-    fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`)
+    fetch(
+      `https://api.github.com/users/${username}/repos?sort=updated&per_page=6`
+    )
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch repositories.");
         return res.json();
@@ -50,7 +56,9 @@ function App() {
       {/* Navbar */}
       <nav className="navbar">
         <div className="logo">
-          <h2>Jaymart Impas<span>.</span></h2>
+          <h2>
+            Jaymart Impas<span>.</span>
+          </h2>
         </div>
         <div className="nav-links">
           <a href="#home">Home</a>
@@ -64,10 +72,14 @@ function App() {
       {/* Hero */}
       <section id="home" className="hero">
         <p className="greeting">WELCOME TO MY PORTFOLIO</p>
-        <h1>Hi, I'm <span>Jaymart Impas</span></h1>
+        <h1>
+          Hi, I'm <span>Jaymart Impas</span>
+        </h1>
         <h3>Aspiring Web Developer & Tech Enthusiast</h3>
         <p className="bio-summary">
-          Currently studying at the <strong>University of Cabuyao</strong>. I craft responsive web solutions, build dynamic applications, and continuously explore modern backend and frontend ecosystems.
+          Currently studying at the <strong>University of Cabuyao</strong>. I
+          craft responsive web solutions, build dynamic applications, and
+          continuously explore modern backend and frontend ecosystems.
         </p>
 
         <div className="hero-btns">
@@ -90,11 +102,17 @@ function App() {
         <h2>About Me</h2>
         <div className="about-content">
           <p>
-            I am a passionate technology student with a strong focus on building practical, full-stack web applications. My journey involves breaking down complex problems into clean, usable software solutions—ranging from database-driven management systems to interactive user interfaces.
+            I am a passionate technology student with a strong focus on building
+            practical, full-stack web applications. My journey involves breaking
+            down complex problems into clean, usable software solutions—ranging
+            from database-driven management systems to interactive user
+            interfaces.
           </p>
           <div className="education-box">
             <h3>Education</h3>
-            <p><strong>University of Cabuyao</strong></p>
+            <p>
+              <strong>University of Cabuyao</strong>
+            </p>
             <p>College of Computer Studies</p>
           </div>
         </div>
@@ -107,9 +125,8 @@ function App() {
           <div className="skill-category">
             <h3>Frontend</h3>
             <div className="skills-list">
-              <span>HTML5</span>
-              <span>CSS3</span>
-              <span>JavaScript (ES6+)</span>
+              <span>HTML</span>
+              <span>JavaScript</span>
               <span>React</span>
               <span>Bootstrap</span>
             </div>
@@ -129,7 +146,6 @@ function App() {
               <span>Git & GitHub</span>
               <span>XAMPP</span>
               <span>Postman</span>
-              <span>Linux Basics</span>
             </div>
           </div>
         </div>
@@ -138,9 +154,13 @@ function App() {
       {/* Projects */}
       <section id="projects" className="section">
         <h2>Featured Projects</h2>
-        <p className="section-subtitle">Real-time updates directly fetched from my GitHub account.</p>
+        <p className="section-subtitle">
+          Real-time updates directly fetched from my GitHub account.
+        </p>
 
-        {loading && <p className="status-msg">Loading latest repositories...</p>}
+        {loading && (
+          <p className="status-msg">Loading latest repositories...</p>
+        )}
         {error && <p className="status-msg error">{error}</p>}
 
         {!loading && !error && (
@@ -149,11 +169,21 @@ function App() {
               <div key={repo.id} className="project-card">
                 <div className="card-header">
                   <h3>{repo.name}</h3>
-                  {repo.language && <span className="tech-badge">{repo.language}</span>}
+                  {repo.language && (
+                    <span className="tech-badge">{repo.language}</span>
+                  )}
                 </div>
-                <p>{repo.description || "No description provided for this repository."}</p>
+                <p>
+                  {repo.description ||
+                    "No description provided for this repository."}
+                </p>
                 <div className="card-footer">
-                  <a href={repo.html_url} target="_blank" rel="noreferrer" className="repo-link">
+                  <a
+                    href={repo.html_url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="repo-link"
+                  >
                     View Source Code &rarr;
                   </a>
                 </div>
@@ -166,7 +196,10 @@ function App() {
       {/* Contact */}
       <section id="contact" className="section">
         <h2>Get In Touch</h2>
-        <p>Feel free to reach out for collaborations, project inquiries, or networking!</p>
+        <p>
+          Feel free to reach out for collaborations, project inquiries, or
+          networking!
+        </p>
 
         <form className="contact-form" onSubmit={handleFormSubmit}>
           {formSubmitted && (
@@ -204,13 +237,17 @@ function App() {
               required
             ></textarea>
           </div>
-          <button type="submit" className="btn">Send Message</button>
+          <button type="submit" className="btn">
+            Send Message
+          </button>
         </form>
       </section>
 
       {/* Footer */}
       <footer className="footer">
-        <p>&copy; {new Date().getFullYear()} Jaymart Impas. Built with React.</p>
+        <p>
+          &copy; {new Date().getFullYear()} Jaymart Impas. Built with React.
+        </p>
       </footer>
     </div>
   );
