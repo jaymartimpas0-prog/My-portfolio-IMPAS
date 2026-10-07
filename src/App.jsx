@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import ChatboxToggle from "./ChatboxToggle";
 
 function App() {
   const [repos, setRepos] = useState([]);
@@ -52,7 +53,7 @@ function App() {
   };
 
   return (
-    <div className="container">
+    <div className="container relative">
       {/* Navbar */}
       <nav className="navbar">
         <div className="logo">
@@ -249,6 +250,9 @@ function App() {
           &copy; {new Date().getFullYear()} Jaymart Impas. Built with React.
         </p>
       </footer>
+
+      {/* Chatbase AI Chatbot Widget */}
+      <ChatboxToggle />
     </div>
   );
 }
