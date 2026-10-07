@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import ChatboxToggle from "./ChatboxToggle";
+import profileImg from "./assets/123.jpg"; // In-import ang larawan mula sa assets folder
 
 function App() {
   const [repos, setRepos] = useState([]);
@@ -75,11 +76,7 @@ function App() {
         <div className="hero-container">
           {/* Circular Image Container */}
           <div className="profile-img-container">
-            <img
-              src="/profile.jpg"
-              alt="Jaymart Impas"
-              className="profile-img"
-            />
+            <img src={profileImg} alt="" className="profile-img" />
           </div>
 
           {/* Hero Content */}
