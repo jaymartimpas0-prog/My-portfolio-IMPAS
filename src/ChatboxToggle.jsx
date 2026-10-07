@@ -1,7 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ChatboxToggle = () => {
   const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    // Dynamically inject Chatbase config and script
+    window.embeddedChatbotConfig = {
+      chatbotId: "VLzoh7d-aWPnKjmZHOMvT",
+      domain: "www.chatbase.co",
+    };
+
+    const script = document.createElement("script");
+    script.src = "https://www.chatbase.co/embed.min.js";
+    script.setAttribute("chatbotId", "VLzoh7d-aWPnKjmZHOMvT");
+    script.setAttribute("domain", "www.chatbase.co");
+    script.defer = true;
+    document.body.appendChild(script);
+
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
 
   return (
     <div
@@ -41,7 +62,7 @@ const ChatboxToggle = () => {
         </div>
       )}
 
-      {/* Hide or See Toggle Button sa Bottom Right */}
+      {/* Hide or See Toggle Button */}
       <button
         onClick={() => setIsVisible(!isVisible)}
         style={{
