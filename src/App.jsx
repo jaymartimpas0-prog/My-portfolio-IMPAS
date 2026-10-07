@@ -70,31 +70,45 @@ function App() {
         </div>
       </nav>
 
-      {/* Hero */}
+      {/* Hero with Profile Image */}
       <section id="home" className="hero">
-        <p className="greeting">WELCOME TO MY PORTFOLIO</p>
-        <h1>
-          Hi, I'm <span>Jaymart Impas</span>
-        </h1>
-        <h3>Aspiring Web Developer & Tech Enthusiast</h3>
-        <p className="bio-summary">
-          Currently studying at the <strong>University of Cabuyao</strong>. I
-          craft responsive web solutions, build dynamic applications, and
-          continuously explore modern backend and frontend ecosystems.
-        </p>
+        <div className="hero-container">
+          {/* Circular Image Container */}
+          <div className="profile-img-container">
+            <img
+              src="/profile.jpg"
+              alt="Jaymart Impas"
+              className="profile-img"
+            />
+          </div>
 
-        <div className="hero-btns">
-          <a href="#projects" className="btn">
-            View Projects
-          </a>
-          <a
-            href={`https://github.com/${username}`}
-            target="_blank"
-            rel="noreferrer"
-            className="btn-outline"
-          >
-            GitHub Profile
-          </a>
+          {/* Hero Content */}
+          <div className="hero-text">
+            <p className="greeting">WELCOME TO MY PORTFOLIO</p>
+            <h1>
+              Hi, I'm <span>Jaymart Impas</span>
+            </h1>
+            <h3>Aspiring Web Developer & Tech Enthusiast</h3>
+            <p className="bio-summary">
+              Currently studying at the <strong>University of Cabuyao</strong>.
+              I craft responsive web solutions, build dynamic applications, and
+              continuously explore modern backend and frontend ecosystems.
+            </p>
+
+            <div className="hero-btns">
+              <a href="#projects" className="btn">
+                View Projects
+              </a>
+              <a
+                href={`https://github.com/${username}`}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-outline"
+              >
+                GitHub Profile
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
