@@ -114,7 +114,7 @@ function App() {
             <p>
               <strong>University of Cabuyao</strong>
             </p>
-            <p>College of Computer Studies</p>
+            <p>College of Computing Studies</p>
           </div>
         </div>
       </section>
